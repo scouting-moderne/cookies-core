@@ -19,7 +19,8 @@ public final class CookieCalculator {
         return price;
     }
 
-    public static BigDecimal calculatePrice(CookieType cookieType, @Nullable BigDecimal discountPercentage) {
+    public static BigDecimal calculatePrice(CookieType cookieType,
+                                            @Nullable BigDecimal discountPercentage) {
         BigDecimal price = switch (cookieType) {
             case STROOPWAFEL -> BigDecimal.valueOf(0.50);
             case KANO -> BigDecimal.valueOf(1.00);
