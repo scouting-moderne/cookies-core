@@ -17,13 +17,14 @@ public final class CookieCalculator {
     }
 
     public static BigDecimal calculatePrice(CookieType cookieType) {
-        return switch (cookieType) {
-            case STROOPWAFEL -> BigDecimal.valueOf(0.5);
-            case KANO -> BigDecimal.valueOf(1);
-            case KOKOSMAKROON -> BigDecimal.valueOf(1.5);
-            case EIERKOEK -> BigDecimal.valueOf(1);
-            case GEVULDE_KOEK -> BigDecimal.valueOf(1.2);
-            case ROZE_KOEK -> BigDecimal.valueOf(1.5);
+        BigDecimal price = switch (cookieType) {
+            case STROOPWAFEL -> BigDecimal.valueOf(0.50);
+            case KANO -> BigDecimal.valueOf(1.00);
+            case KOKOSMAKROON -> BigDecimal.valueOf(1.50);
+            case EIERKOEK -> BigDecimal.valueOf(1.00);
+            case GEVULDE_KOEK -> BigDecimal.valueOf(1.20);
+            case ROZE_KOEK -> BigDecimal.valueOf(1.50);
         };
+        return price;
     }
 }
