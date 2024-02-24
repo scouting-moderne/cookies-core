@@ -15,7 +15,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation("org.apache.commons:commons-lang3:3.14.0")
+    testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
 }
 
 tasks.named('test') {
