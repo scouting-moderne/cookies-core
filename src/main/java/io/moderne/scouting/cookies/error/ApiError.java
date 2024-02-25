@@ -1,6 +1,8 @@
 package io.moderne.scouting.cookies.error;
 
+import jakarta.annotation.Nullable;
+
 public record ApiError(String title,
                        String detail,
-                       int status) {
+                       @Nullable Integer status) {
 }
