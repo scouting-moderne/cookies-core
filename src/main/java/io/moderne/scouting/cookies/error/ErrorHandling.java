@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ErrorHandling {
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ApiError> handleException(ApiException exception) {
-        return ResponseEntity.internalServerError().body(exception.getError());
+        return ResponseEntity.status(exception.getError().status()).body(exception.getError());
     }
 
 }
