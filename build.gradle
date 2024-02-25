@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id("com.netflix.nebula.maven-nebula-publish") version "20.3.0"
+    id 'maven-publish'
 }
 
 group = 'io.moderne.scouting.cookies'
@@ -12,6 +12,7 @@ java {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -22,21 +23,4 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-publishing {
-    repositories {
-        def artifactoryUsername = System.getenv("MODERNE_ARTIFACTORY_USERNAME")
-        def artifactoryPassword = System.getenv("MODERNE_ARTIFACTORY_PASSWORD")
-        if (artifactoryUsername != null && artifactoryPassword != null) {
-            maven {
-                name = "ModerneArtifactory"
-                url = uri("https://artifactory.moderne.ninja/artifactory/moderne-demo")
-                credentials {
-                    username = artifactoryUsername
-                    password = artifactoryPassword
-                }
-            }
-        }
-    }
 }
