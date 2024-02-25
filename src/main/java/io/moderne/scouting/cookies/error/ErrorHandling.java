@@ -8,7 +8,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ErrorHandling {
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ApiError> handleException(ApiException exception) {
-        return ResponseEntity.status(exception.getError().status() == null ? 500 : exception.getError().status()).body(exception.getError());
+        int status;
+        if (exception.getError().status() == null) {
+            status = 500;
+        } else {
+            status = exception.getError().status();
+        }
+        return ResponseEntity.status(status)
+                .body(exception.getError());
     }
 
 }
