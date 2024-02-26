@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'io.moderne.scouting.cookies'
-version = '0.0.2'
+version = '1.0.0-SNAPSHOT'
 
 java {
     sourceCompatibility = '17'
@@ -23,4 +23,12 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
 }
