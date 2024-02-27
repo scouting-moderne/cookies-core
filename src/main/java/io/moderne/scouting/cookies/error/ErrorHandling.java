@@ -9,7 +9,7 @@ public class ErrorHandling {
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ApiError> handleException(ApiException exception) {
         int status;
-        if (exception.getError().status() == null) {
+        if (exception.getError().status() < 100 || exception.getError().status() > 599) {
             status = 500;
         } else {
             status = exception.getError().status();
